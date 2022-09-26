@@ -33,17 +33,15 @@ public class StatemenT {
         }
     }
 
-    public List<User> getListUsersByEmail(String email) throws SQLException {
+    public void getListUsersByEmail(String email) throws SQLException {
         String s = "SELECT * FROM sys.user where email=\"" + email + "\"";
 
         ResultSet resultSet;
-        List<User> users=new ArrayList<>();
         resultSet=statement.executeQuery(s);
 
         while (resultSet.next()){
             System.out.println(resultSet.getString("username")+" "+ resultSet.getString("email"));
         }
-        return users;
     }
 
     public void UpdatePassword(String password,String id){
